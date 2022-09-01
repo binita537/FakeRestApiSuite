@@ -8,7 +8,6 @@ import lombok.Getter;
 
 
 @Getter
-@Component
 public class AbstarctWebDriverInstance {
 	
 	protected WebDriverWait webDriverWait;

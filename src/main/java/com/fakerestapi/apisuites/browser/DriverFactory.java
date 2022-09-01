@@ -2,17 +2,18 @@ package com.fakerestapi.apisuites.browser;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+@Component
 public class DriverFactory {
 
-	WebDriverInstance webDriverInstance;
+	WebDriverInstance webDriverInstance=null;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(DriverFactory.class);
 
 	public WebDriverInstance getDriverInstance(BrowserType browserType) {
-		
 
 		try {
 			if (browserType.equals(BrowserType.CHROME)) {

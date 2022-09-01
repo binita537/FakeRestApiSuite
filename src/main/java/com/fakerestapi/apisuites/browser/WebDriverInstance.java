@@ -10,7 +10,6 @@ public abstract class WebDriverInstance extends AbstarctWebDriverInstance{
 	
 
 	public WebDriverInstance() {
-		System.out.println("I am webdriver Instance interface");
 
 	}
 

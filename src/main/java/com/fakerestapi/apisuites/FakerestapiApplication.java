@@ -8,6 +8,10 @@ public class FakerestapiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FakerestapiApplication.class, args);
+		
+		
+	  System.out.println("I am starting my project  ");	
+	
 	}
 
 }
