@@ -25,8 +25,8 @@
 		<maven.surefire.version>2.22.2</maven.surefire.version>
 		<cucumber.java.version>7.5.0</cucumber.java.version>
 		<cucumber.junit.version>7.5.0</cucumber.junit.version>
-		<selenium.java.version>3.141.59</selenium.java.version>
-		<webdrivermanager.version>4.2.2</webdrivermanager.version>
+		<selenium.java.version>4.1.1</selenium.java.version>
+		<webdrivermanager.version>5.1.0</webdrivermanager.version>
 		<cucumber.java8.version>7.5.0</cucumber.java8.version>
 		<projectlombok.version>1.18.22</projectlombok.version>
 
@@ -41,7 +41,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+
 		</dependency>
 
 
@@ -50,7 +50,14 @@
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
 			<version>${cucumber.junit.version}</version>
-			<scope>test</scope>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-spring -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-spring</artifactId>
+			<version>7.6.0</version>
 		</dependency>
 
 

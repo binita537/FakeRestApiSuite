@@ -1,24 +1,32 @@
 package com.fakerestapi.apisuites.stepdefinations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import com.fakerestapi.apisuites.browser.AbstarctWebDriverInstance;
+import com.fakerestapi.apisuites.autoconfigrations.AutoConfigration;
 import com.fakerestapi.apisuites.browser.BrowserConfig;
-import com.fakerestapi.apisuites.browser.ChromeDriverInstance;
 import com.fakerestapi.apisuites.browser.DriverFactory;
-import com.fakerestapi.apisuites.browser.FirefoxDriverInstance;
-import com.fakerestapi.apisuites.browser.IEDriverInstance;
 import com.fakerestapi.apisuites.browser.WebDriverInstance;
+import com.fakerestapi.apisuites.config.Auth;
 
-public class BaseStepDefinitions {
+
+@SpringBootTest(classes = { AutoConfigration.class })
+public abstract class BaseStepDefinitions {
+
+	
 
 	@Autowired
-	protected WebDriverInstance webDriverInstance;
+	Auth auth;
+	
+	@Autowired
+	BrowserConfig browserConfig;
+	
+	@Autowired
+	WebDriverInstance webDriverInstance;
 
 	@Autowired
-	protected DriverFactory driverFactory;
+	DriverFactory driverFactory;
 
-	@Autowired
-	protected BrowserConfig browserConfig;
-
+	
+	
 }

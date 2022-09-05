@@ -2,18 +2,23 @@ package com.fakerestapi.apisuites.stepdefinations;
 
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import com.fakerestapi.apisuites.browser.BrowserType;
+import com.fakerestapi.apisuites.autoconfigrations.AutoConfigration;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.cucumber.spring.CucumberContextConfiguration;
 
+
+@CucumberContextConfiguration
+@SpringBootTest(classes = { AutoConfigration.class })
 public class Hooks extends BaseStepDefinitions{
+	
 	
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(Hooks.class);
@@ -23,14 +28,10 @@ public class Hooks extends BaseStepDefinitions{
 	@Before
 	public void startSenario(Scenario scenario) throws Exception {
 
-		String testcaseName = String.format("%s:%s", scenario.getName().replace(" ", "_"), scenario.getLine());
 
 		LOGGER.info("Strting the tets case : '{}'", scenario.getName());
-		System.out.println(
-				String.format("[%s] string tets case :%s ", dateFormat.format(new Date()), scenario.getName()));
-
 		 
-	//driverFactory.getDriverInstance(BrowserType.CHROME).getDriver().get("");
+	
 	
 	}
 
@@ -41,8 +42,7 @@ public class Hooks extends BaseStepDefinitions{
 
 		LOGGER.info("%s:%s", scenario.getName(), scenario.getLine());
 
-		webDriverInstance.getDriver().close();
-
+		
 	}
 
 }

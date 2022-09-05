@@ -17,9 +17,10 @@ public class FirefoxDriverInstance extends WebDriverInstance {
 		this.javascriptExecutor=(JavascriptExecutor) this.driver;
 	}
 
-	@Override
-	public void tearDown() {
-
-	}
+	/*
+	 * @Override public void tearDown() {
+	 * 
+	 * }
+	 */
 
 }

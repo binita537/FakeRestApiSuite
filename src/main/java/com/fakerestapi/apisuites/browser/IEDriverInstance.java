@@ -16,10 +16,10 @@ public class IEDriverInstance extends WebDriverInstance {
 		this.webDriverWait=new WebDriverWait(this.driver, Duration.ofSeconds(2));
 		this.javascriptExecutor=(JavascriptExecutor) this.driver;
 	}
-	
-	@Override
-	public void tearDown() {
-
-	}
+	/*
+	 * @Override public void tearDown() {
+	 * 
+	 * }
+	 */
 
 }
