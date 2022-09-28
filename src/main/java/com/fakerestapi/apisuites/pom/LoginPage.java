@@ -1,21 +1,24 @@
 package com.fakerestapi.apisuites.pom;
 
+import javax.annotation.PostConstruct;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.fakerestapi.apisuites.browser.WebDriverInstance;
 
 @Component
 public class LoginPage extends BasePage {
 
-	public LoginPage(WebDriver driver) {
-		super(driver);
-		
-	}
-
 	private static final Logger LOGGER = LoggerFactory.getLogger(LoginPage.class);
+
+	public LoginPage(WebDriverInstance webDriverInstance) {
+		super(webDriverInstance);
+
+	}
 
 	
 
@@ -36,5 +39,15 @@ public class LoginPage extends BasePage {
 	private static final By LOGIN_SELECTOR = By.xpath(LOGIN_LOCATOR);
 	
 	
+	// Actions methods
+
+		public void login(String userName, String password) {
+			commonUIActions.waitUntilAppearAndGetElement(webDriverInstance, LOGIN_SELECTOR).clear();
+			commonUIActions.waitUntilAppearAndGetElement(webDriverInstance, LOGIN_SELECTOR).sendKeys(userName);
+			commonUIActions.waitUntilAppearAndGetElement(webDriverInstance, PASSWORD_SELECTOR).clear();
+			commonUIActions.waitUntilAppearAndGetElement(webDriverInstance, PASSWORD_SELECTOR).sendKeys(password);
+			commonUIActions.waitUntilAppearAndGetElement(webDriverInstance, LOGIN_SELECTOR).click();
+
+		}
 
 }

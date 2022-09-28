@@ -12,5 +12,15 @@ public class AbstarctWebDriverInstance {
 	
 	protected WebDriverWait webDriverWait;
 	protected JavascriptExecutor javascriptExecutor;
+	
+	public WebDriverWait getWebDriverWait() {
+		return webDriverWait;
+	}
+	
+	public JavascriptExecutor getJavascriptExecutor() {
+		return javascriptExecutor;
+	}
+
+	
 
 }

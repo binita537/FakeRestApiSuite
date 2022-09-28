@@ -11,6 +11,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 @Component
 public class DriverFactory {
+	
+	private  WebDriver driver;
 
 	@Autowired
 	WebDriverInstance webDriverInstance;
@@ -21,13 +23,14 @@ public class DriverFactory {
 	public DriverFactory(WebDriverInstance webDriverInstance, BrowserConfig browserConfig) {
 		this.webDriverInstance = webDriverInstance;
 		this.browserConfig = browserConfig;
+		this.driver=webDriverInstance.getDriver();
 	}
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(DriverFactory.class);
 
 	public WebDriverInstance getDriverInstance(String string) {
 
-		try {
+		try { 
 			if (string.equalsIgnoreCase("chrome")) {
 				webDriverInstance = getChromeDriverInstance();
 
@@ -47,7 +50,7 @@ public class DriverFactory {
 	}
 
 	public WebDriver getWebDriver() {
-		return getDriverInstance(browserConfig.getName()).getDriver();
+		return driver=getDriverInstance(browserConfig.getName()).getDriver();
 	}
 
 	private WebDriverInstance getChromeDriverInstance() {

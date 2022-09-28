@@ -1,5 +1,6 @@
 package com.fakerestapi.apisuites.autoconfigrations;
 
+import org.openqa.selenium.WebDriver;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,6 +10,8 @@ import com.fakerestapi.apisuites.browser.BrowserConfig;
 import com.fakerestapi.apisuites.browser.DriverFactory;
 import com.fakerestapi.apisuites.browser.WebDriverInstance;
 import com.fakerestapi.apisuites.config.Auth;
+import com.fakerestapi.apisuites.utils.CommonUIActions;
+import com.fakerestapi.apisuites.utils.CommonUtils;
 
 @Configuration
 @EnableConfigurationProperties
@@ -36,4 +39,13 @@ public class AutoConfigration {
 		return new Auth();
 	}
 
+	@Bean
+	public CommonUIActions commonUIActions(WebDriverInstance webDriverInstance) {
+		return new CommonUIActions(webDriverInstance);
+	}
+
+	@Bean
+	public CommonUtils commonUtils(WebDriverInstance webDriverInstance) {
+		return new CommonUtils(webDriverInstance);
+	}
 }

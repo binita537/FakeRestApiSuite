@@ -10,6 +10,9 @@ import com.fakerestapi.apisuites.browser.DriverFactory;
 import com.fakerestapi.apisuites.browser.WebDriverInstance;
 import com.fakerestapi.apisuites.config.Auth;
 
+import io.cucumber.spring.CucumberContextConfiguration;
+
+@CucumberContextConfiguration
 @SpringBootTest(classes = { AutoConfigration.class })
 class FakerestapiApplicationTests {
 
